@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Siyabopha</string>
+    <string name="register.submit">Submit</string>
+    <string name="current_user_id">0</string>
+    <string name="user_information">"user_information"</string>
+    <string name="copyright">Copyright Computek 2012</string>
+    <string name="incidents_url">http://197.96.40.222/incidents</string>
+</resources>

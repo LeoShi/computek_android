@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+    <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_gravity="center">
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Break In"
+                    android:id="@+id/btn_break_in" android:layout_column="0" android:width="150dp"
+                    android:onClick="btn_break_in"/>
+        </TableRow>
+    </TableLayout>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Incidents Report"
+            android:id="@+id/textView" android:layout_gravity="center_horizontal|top" android:textSize="30dp"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/copyright"
+            android:id="@+id/textView1" android:layout_gravity="center_horizontal|bottom" android:padding="5dp"/>
+</FrameLayout>
