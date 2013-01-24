@@ -18,14 +18,14 @@ import java.util.List;
 
 public class Incidents extends Activity {
     private LocationWrapper locationWrapper;
-    private long user_id;
+    private long mobile_user_id;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.incidents);
         LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         locationWrapper = new LocationWrapper(locationManager);
-        user_id = getSharedPreferences(getString(R.string.user_information), Context.MODE_PRIVATE).getLong(getString(R.string.current_user_id), 0);
+        mobile_user_id = getSharedPreferences(getString(R.string.user_information), Context.MODE_PRIVATE).getLong(getString(R.string.current_user_id), 0);
     }
 
     public void btn_break_in(View view) {
@@ -67,7 +67,7 @@ public class Incidents extends Activity {
 
         List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
         nameValuePairs.add(new BasicNameValuePair("[incident][category]", "House Break in"));
-        nameValuePairs.add(new BasicNameValuePair("[incident][user_id]", Long.toString(user_id)));
+        nameValuePairs.add(new BasicNameValuePair("[incident][mobile_user_id]", Long.toString(mobile_user_id)));
         nameValuePairs.add(new BasicNameValuePair("[incident][location_attributes][latitude]", Double.toString(latitude)));
         nameValuePairs.add(new BasicNameValuePair("[incident][location_attributes][longitude]", Double.toString(longitude)));
         nameValuePairs.add(new BasicNameValuePair("[incident][location_attributes][street]", location_street));

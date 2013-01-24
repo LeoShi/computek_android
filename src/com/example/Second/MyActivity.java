@@ -44,7 +44,7 @@ public class MyActivity extends Activity {
                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int which) {
                        List<NameValuePair> user_info = build_user_information();
-                       Response response = RequestWrapper.post("http://197.96.40.222/users.json", user_info);
+                       Response response = RequestWrapper.post(getString(R.string.mobile_user_url), user_info);
                        Log.w("response", response.getHttp_status_code());
                        if(response.getHttp_status_code().equals("HTTP/1.1 201 Created")){
                            save_user(response);
