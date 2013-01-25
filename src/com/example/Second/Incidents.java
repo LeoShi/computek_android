@@ -29,8 +29,49 @@ public class Incidents extends Activity {
     }
 
     public void btn_break_in(View view) {
-        Log.w("Break In", locationWrapper.getLocation());
-        List<NameValuePair> nameValuePairs = build_incident_infor();
+        requestIncident("House Break in");
+    }
+
+    public void btn_dv(View view) {
+        requestIncident("Domestic Violence");
+    }
+
+    public void btn_hijack(View view) {
+        requestIncident("Hijack");
+    }
+
+    public void btn_suspect(View view) {
+        requestIncident("Suspects");
+    }
+
+    public void btn_animal_abuse(View view) {
+        requestIncident("Animal abuse");
+    }
+
+    public void btn_shooting(View view) {
+        requestIncident("Shooting");
+    }
+
+    public void btn_murder(View view) {
+        requestIncident("Murder");
+    }
+
+    public void btn_illegal_firearm(View view) {
+        requestIncident("Illegal Firearm");
+    }
+
+    public void btn_drug_dealing(View view) {
+        requestIncident("Drug Dealing");
+    }
+
+    public void btn_drug_use(View view) {
+        requestIncident("Drug Use");
+    }
+
+
+    private void requestIncident(String incidentName) {
+        Log.w(incidentName, locationWrapper.getLocation());
+        List<NameValuePair> nameValuePairs = build_incident_infor(incidentName);
         Response response = RequestWrapper.post(getString(R.string.incidents_url), nameValuePairs);
         Log.w("BI_Reponse_status_code", response.getHttp_status_code());
         Log.w("BI_Reponse_content", response.getContent());
@@ -60,13 +101,13 @@ public class Incidents extends Activity {
         alertDialog.show();
     }
 
-    private List<NameValuePair> build_incident_infor() {
+    private List<NameValuePair> build_incident_infor(String incident_name) {
         String location_street = locationWrapper.getLocation();
         double latitude = locationWrapper.getLatitude();
         double longitude = locationWrapper.getLongitude();
 
         List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-        nameValuePairs.add(new BasicNameValuePair("[incident][category]", "House Break in"));
+        nameValuePairs.add(new BasicNameValuePair("[incident][category]", incident_name));
         nameValuePairs.add(new BasicNameValuePair("[incident][mobile_user_id]", Long.toString(mobile_user_id)));
         nameValuePairs.add(new BasicNameValuePair("[incident][location_attributes][latitude]", Double.toString(latitude)));
         nameValuePairs.add(new BasicNameValuePair("[incident][location_attributes][longitude]", Double.toString(longitude)));
