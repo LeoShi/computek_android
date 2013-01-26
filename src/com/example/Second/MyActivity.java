@@ -75,13 +75,13 @@ public class MyActivity extends Activity {
 
     private List<NameValuePair> build_user_information() {
         List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-        nameValuePairs.add(new  BasicNameValuePair("[user][alternative_contact]", getValueById(R.id.alternative_mobile)));
-        nameValuePairs.add(new BasicNameValuePair("[user][mobile_contact]", getValueById(R.id.mobile_contact)));
-        nameValuePairs.add(new BasicNameValuePair("[user][mobile_of_kin]", getValueById(R.id.mobile_of_kin)));
-        nameValuePairs.add(new BasicNameValuePair("[user][name]", getValueById(R.id.name)));
-        nameValuePairs.add(new BasicNameValuePair("[user][next_of_kin]", getValueById(R.id.next_of_kin)));
-        nameValuePairs.add(new BasicNameValuePair("[user][physical_address]", getValueById(R.id.physic_address)));
-        nameValuePairs.add(new BasicNameValuePair("[user][surname]", getValueById(R.id.surname)));
+        nameValuePairs.add(new  BasicNameValuePair("[mobile_user][alternative_contact]", getValueById(R.id.alternative_mobile)));
+        nameValuePairs.add(new BasicNameValuePair("[mobile_user][mobile_contact]", getValueById(R.id.mobile_contact)));
+        nameValuePairs.add(new BasicNameValuePair("[mobile_user][mobile_of_kin]", getValueById(R.id.mobile_of_kin)));
+        nameValuePairs.add(new BasicNameValuePair("[mobile_user][name]", getValueById(R.id.name)));
+        nameValuePairs.add(new BasicNameValuePair("[mobile_user][next_of_kin]", getValueById(R.id.next_of_kin)));
+        nameValuePairs.add(new BasicNameValuePair("[mobile_user][physical_address]", getValueById(R.id.physic_address)));
+        nameValuePairs.add(new BasicNameValuePair("[mobile_user][surname]", getValueById(R.id.surname)));
         return  nameValuePairs;
     }
 
