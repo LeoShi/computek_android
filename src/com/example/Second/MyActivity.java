@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -26,6 +27,7 @@ public class MyActivity extends Activity {
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        setStrict();
         super.onCreate(savedInstanceState);
         sharedPref = getSharedPreferences(getString(R.string.user_information), Context.MODE_PRIVATE);
         long user_id = sharedPref.getLong(getString(R.string.current_user_id), 0);
@@ -37,7 +39,21 @@ public class MyActivity extends Activity {
 
     }
 
-   public void registerSubmit(View view){
+    private void setStrict() {
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+                .detectDiskReads()
+                .detectDiskWrites()
+                .detectNetwork()   // or .detectAll() for all detectable problems
+                .penaltyLog()
+                .build());
+        StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
+                .detectLeakedSqlLiteObjects()
+                .penaltyLog()
+                .penaltyDeath()
+                .build());
+    }
+
+    public void registerSubmit(View view){
        new AlertDialog.Builder(this)
                .setTitle("Confirm Submit")
                .setMessage("Are you sure you want to submit?")
