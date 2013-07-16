@@ -32,7 +32,7 @@ public class IncidentReporter extends AsyncTask<String, Integer, Response> {
     protected Response doInBackground(String... incident_name) {
         Log.w(incident_name[0], locationDTO.getAddress());
         Response response = requestIncident(incident_name[0]);
-        Log.w("BI_Reponse_status_code", response.getHttp_status_code());
+        Log.w("BI_Reponse_status_code", Integer.toString(response.getHttp_status_code()));
         Log.w("BI_Reponse_content", response.getContent());
         return response;
     }
@@ -69,7 +69,7 @@ public class IncidentReporter extends AsyncTask<String, Integer, Response> {
     }
 
     private void showResult(Response response) {
-        if(response.getHttp_status_code().equals("HTTP/1.1 201 Created")){
+        if(response.getHttp_status_code() == 201){
             JSONObject jsonObject = null;
             try {
                 jsonObject = new JSONObject(response.getContent());

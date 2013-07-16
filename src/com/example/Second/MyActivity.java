@@ -61,8 +61,8 @@ public class MyActivity extends Activity {
                    public void onClick(DialogInterface dialog, int which) {
                        List<NameValuePair> user_info = build_user_information();
                        Response response = RequestWrapper.post(getString(R.string.mobile_user_url), user_info);
-                       Log.w("response", response.getHttp_status_code());
-                       if(response.getHttp_status_code().equals("HTTP/1.1 201 Created")){
+                       Log.w("response", Integer.toString(response.getHttp_status_code()));
+                       if(response.getHttp_status_code() == 201){
                            save_user(response);
                            startActivity(new Intent(MyActivity.this, MainMenu.class));
                        }

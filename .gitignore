@@ -1,5 +1,6 @@
 # built application files
 computek_android.iml
+*.iml
 .idea
 *.apk
 *.ap_

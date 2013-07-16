@@ -37,8 +37,8 @@ public class RequestWrapper {
         String content = null;
         try {
             response = new DefaultHttpClient().execute(request);
-            String http_status_code = response.getStatusLine().toString();
-            Log.i("Http Status Code", http_status_code);
+            int http_status_code = response.getStatusLine().getStatusCode();
+            Log.i("Http Status Code", Integer.toString(http_status_code));
             HttpEntity entity = response.getEntity();
             if (entity != null) {
                 InputStream input_stream = entity.getContent();
