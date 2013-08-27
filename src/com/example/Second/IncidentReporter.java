@@ -38,11 +38,11 @@ public class IncidentReporter extends AsyncTask<String, Integer, Response> {
     }
 
     private Response requestIncident(String incidentName) {
-        List<NameValuePair> nameValuePairs = build_incident_infor(incidentName);
+        List<NameValuePair> nameValuePairs = build_incident_info(incidentName);
         return RequestWrapper.post(context.getString(R.string.incidents_url), nameValuePairs);
     }
 
-    private List<NameValuePair> build_incident_infor(String incident_name) {
+    private List<NameValuePair> build_incident_info(String incident_name) {
         String location_street = locationDTO.getAddress();
         double latitude = locationDTO.getLatitude();
         double longitude = locationDTO.getLongitude();

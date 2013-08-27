@@ -12,9 +12,9 @@
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Break In"
-                    android:id="@+id/btn_break_in" android:layout_column="0" android:width="150dp"
-                    android:onClick="btn_break_in"/>
+                    android:text="Abduction"
+                    android:id="@+id/btn_abduction" android:layout_column="0" android:width="150dp"
+                    android:onClick="btn_abduction"/>
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -24,24 +24,16 @@
         <TableRow
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent">
-        </TableRow>
-        <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Armed Robbery"
+                    android:id="@+id/btn_armed_robbery" android:layout_column="0" android:onClick="btn_armed_robbery"/>
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Hijack"
-                    android:id="@+id/btn_hijack" android:layout_column="0" android:onClick="btn_hijack"/>
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Suspects"
-                    android:id="@+id/btn_suspect" android:layout_column="1" android:onClick="btn_suspect"/>
-        </TableRow>
-        <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+                    android:id="@+id/btn_hijack" android:layout_column="1" android:onClick="btn_hijack"/>
         </TableRow>
         <TableRow
                 android:layout_width="fill_parent"
@@ -49,8 +41,8 @@
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Animal abuse"
-                    android:id="@+id/btn_animal_abuse" android:layout_column="0" android:onClick="btn_animal_abuse"/>
+                    android:text="Arson"
+                    android:id="@+id/btn_arson" android:layout_column="0" android:onClick="btn_arson"/>
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -60,21 +52,18 @@
         <TableRow
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent">
-        </TableRow>
-        <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Assault"
+                    android:id="@+id/btn_assault" android:layout_column="0"
+                    android:onClick="btn_assault"/>
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Murder"
-                    android:id="@+id/btn_murder" android:layout_column="0" android:onClick="btn_murder"/>
-            <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Illegal Firearm"
-                    android:id="@+id/btn_illegal_firearm" android:layout_column="1"
-                    android:onClick="btn_illegal_firearm"/>
+                    android:id="@+id/btn_murder" android:layout_column="1" android:onClick="btn_murder"/>
+
         </TableRow>
         <TableRow
                 android:layout_width="fill_parent"
@@ -82,13 +71,41 @@
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Drug Dealing"
-                    android:id="@+id/btn_drug_dealing" android:layout_column="0" android:onClick="btn_drug_dealing"/>
+                    android:text="Attempted Murder"
+                    android:id="@+id/btn_attempted_murder" android:layout_column="0" android:onClick="btn_attempted_murder"/>
             <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Drug Use"
-                    android:id="@+id/btn_drug_use" android:layout_column="1" android:onClick="btn_drug_use"/>
+                    android:text="Rape"
+                    android:id="@+id/btn_rape" android:layout_column="1" android:onClick="btn_rape"/>
+        </TableRow>
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bombing"
+                    android:id="@+id/btn_bombing" android:layout_column="0" android:onClick="btn_bombing"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fighting"
+                    android:id="@+id/btn_fighting" android:layout_column="1" android:onClick="btn_fighting"/>
+        </TableRow>
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Terror Attack"
+                    android:id="@+id/btn_terror_attack" android:layout_column="0" android:onClick="btn_terror_attack"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Terror Suspect"
+                    android:id="@+id/btn_terror_suspect" android:layout_column="1" android:onClick="btn_terror_suspect"/>
         </TableRow>
     </TableLayout>
     <TextView

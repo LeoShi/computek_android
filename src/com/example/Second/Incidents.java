@@ -29,52 +29,61 @@ public class Incidents extends Activity {
         return locationDTO;
     }
 
-    public void btn_break_in(View view) {
-        new IncidentReporter(this, getLocationDTO()).execute("House Break in");
+
+    public void btn_abduction(View view) {
+        new IncidentReporter(this, getLocationDTO()).execute("Abduction");
+    }
+
+    public void btn_armed_robbery(View view) {
+        new IncidentReporter(this, getLocationDTO()).execute("Armed Robbery");
+    }
+
+    public void btn_arson(View view) {
+        new IncidentReporter(this, getLocationDTO()).execute("Arson");
+    }
+
+    public void btn_assault(View view) {
+        new IncidentReporter(this, getLocationDTO()).execute("Assault");
     }
 
     public void btn_dv(View view) {
         new IncidentReporter(this, getLocationDTO()).execute("Domestic Violence");
     }
 
+    public void btn_attempted_murder(View view) {
+        new IncidentReporter(this, getLocationDTO()).execute("Attempted Murder");
+    }
+
+    public void btn_bombing(View view) {
+        new IncidentReporter(this, getLocationDTO()).execute("Bombing");
+    }
+
+    public void btn_terror_attack(View view) {
+        new IncidentReporter(this, getLocationDTO()).execute("Terror Attack");
+    }
+
+    public void btn_terror_suspect(View view) {
+        new IncidentReporter(this, getLocationDTO()).execute("Terror Suspect");
+    }
+
+    public void btn_fighting(View view) {
+        new IncidentReporter(this, getLocationDTO()).execute("Fighting");
+    }
+
+    public void btn_rape(View view) {
+        new IncidentReporter(this, getLocationDTO()).execute("Rape");
+    }
+
     public void btn_hijack(View view) {
         new IncidentReporter(this, getLocationDTO()).execute("Hijack");
-
-    }
-
-    public void btn_suspect(View view) {
-        new IncidentReporter(this, getLocationDTO()).execute("Suspects");
-
-    }
-
-    public void btn_animal_abuse(View view) {
-        new IncidentReporter(this, getLocationDTO()).execute("Animal abuse");
-
     }
 
     public void btn_shooting(View view) {
         new IncidentReporter(this, getLocationDTO()).execute("Shooting");
-
     }
 
     public void btn_murder(View view) {
         new IncidentReporter(this, getLocationDTO()).execute("Murder");
-
-    }
-
-    public void btn_illegal_firearm(View view) {
-        new IncidentReporter(this, getLocationDTO()).execute("Illegal Firearm");
-
-    }
-
-    public void btn_drug_dealing(View view) {
-        new IncidentReporter(this, getLocationDTO()).execute("Drug Dealing");
-
-    }
-
-    public void btn_drug_use(View view) {
-        new IncidentReporter(this, getLocationDTO()).execute("Drug Use");
-
     }
 
     @Override
