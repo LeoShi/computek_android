@@ -8,4 +8,7 @@
     <string name="incidents_url">http://197.96.40.222/incidents</string>
     <string name="mobile_user_url">http://197.96.40.222/mobile_users.json</string>
     <string name="google_reverse_url"><![CDATA[http://maps.googleapis.com/maps/api/geocode/json?latlng=%1$s,%2$s&sensor=true]]></string>
+    <string name="can_not_get_picture">can not get picture</string>
+    <string name="select_picture">Select Picture</string>
+    <string name="TYPE_image">image/*</string>
 </resources>

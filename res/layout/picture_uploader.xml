@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent">
+
+    <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:id="@+id/img_upload" android:layout_gravity="center" android:clickable="true"
+            android:src="@drawable/default_upload" android:longClickable="false" android:onClick="img_upload_click"/>
+    <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="140dp"
+            android:id="@+id/extra_text" android:inputType="textMultiLine"
+            android:gravity="top" android:password="false"/>
+    <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Upload"
+            android:onClick="btn_upload_click"
+            android:id="@+id/btn_upload" android:layout_gravity="center"/>
+
+</LinearLayout>

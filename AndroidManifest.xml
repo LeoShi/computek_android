@@ -17,5 +17,6 @@
         </activity>
         <activity android:name=".Incidents"/>
         <activity android:name=".MainMenu"/>
+        <activity android:name=".PictureUploader"/>
     </application>
 </manifest>

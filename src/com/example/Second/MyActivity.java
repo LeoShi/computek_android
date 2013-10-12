@@ -32,7 +32,8 @@ public class MyActivity extends Activity {
         sharedPref = getSharedPreferences(getString(R.string.user_information), Context.MODE_PRIVATE);
         long user_id = sharedPref.getLong(getString(R.string.current_user_id), 0);
         if(user_id > 0){
-            startActivity(new Intent(MyActivity.this, MainMenu.class));
+//            startActivity(new Intent(MyActivity.this, MainMenu.class));
+            startActivity(new Intent(MyActivity.this, PictureUploader.class));
         }else {
             setContentView(R.layout.main);
         }
