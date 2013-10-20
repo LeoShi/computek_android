@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -16,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import org.apache.http.NameValuePair;
 
+import java.io.ByteArrayOutputStream;
 import java.util.List;
 
 /**
@@ -29,11 +31,15 @@ public class PictureUploader extends Activity {
     private static final int PICK_IMAGE = 1;
     private ImageView imageView;
     private Bitmap bitmap;
+    private LocationDTO locationDTO;
+    private AsyncTask<Object, Integer, LocationDTO> locationTask;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.picture_uploader);
         imageView = (ImageView) findViewById(R.id.img_upload);
+        LocationProvider locationProvider = new LocationProvider(this);
+        locationTask = locationProvider.execute();
     }
 
     public void img_upload_click(View view){
@@ -136,7 +142,7 @@ public class PictureUploader extends Activity {
                 .setMessage("Are you sure you want to report this?")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-
+                        delegate_call();
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -144,5 +150,30 @@ public class PictureUploader extends Activity {
                         // do nothing
                     }
                 }).show();
+    }
+
+    private void delegate_call(){
+        new IncidentReporter(this, "Abduction", getLocationDTO(), getPictureData()).execute();
+    }
+
+    private byte[] getPictureData(){
+        if (bitmap != null){
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos);
+            return bos.toByteArray();
+        }
+        return null;
+    }
+
+    private LocationDTO getLocationDTO() {
+        if (locationDTO == null) {
+            try {
+                locationDTO = locationTask.get();
+
+            } catch (Exception e) {
+                Log.e("LocationError", e.getMessage());
+            }
+        }
+        return locationDTO;
     }
 }

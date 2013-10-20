@@ -47,7 +47,7 @@ public class LocationProvider extends AsyncTask<Object, Integer, LocationDTO> {
         });
         progDailog.setMessage("Loading Location...");
         progDailog.setIndeterminate(true);
-        progDailog.setCancelable(true);
+        progDailog.setCancelable(false);
         progDailog.show();
 
     }

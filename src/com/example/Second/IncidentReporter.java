@@ -13,25 +13,33 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class IncidentReporter extends AsyncTask<String, Integer, Response> {
+public class IncidentReporter extends AsyncTask<Void, Integer, Response> {
 
+    private String incidentName;
     private Context context;
     private LocationDTO locationDTO;
+    private byte[] pictureData;
     private AlertDialog alertDialog;
     private final long mobile_user_id;
 
-    public IncidentReporter(Context context, LocationDTO locationDTO) {
+    public IncidentReporter(Context context, String incidentName, LocationDTO locationDTO) {
+        this(context, incidentName, locationDTO, null);
+    }
+
+    public IncidentReporter(Context context, String incidentName, LocationDTO locationDTO, byte[] pictureData) {
         this.context = context;
+        this.incidentName = incidentName;
         this.locationDTO = locationDTO;
-        mobile_user_id = context.getSharedPreferences(context.getString(R.string.user_information), Context.MODE_PRIVATE)
+        this.pictureData = pictureData;
+        this.mobile_user_id = context.getSharedPreferences(context.getString(R.string.user_information), Context.MODE_PRIVATE)
                         .getLong(context.getString(R.string.current_user_id), 0);
 
     }
 
     @Override
-    protected Response doInBackground(String... incident_name) {
-        Log.w(incident_name[0], locationDTO.getAddress());
-        Response response = requestIncident(incident_name[0]);
+    protected Response doInBackground(Void... params) {
+        Log.w(this.incidentName, locationDTO.getAddress());
+        Response response = requestIncident(this.incidentName);
         Log.w("BI_Reponse_status_code", Integer.toString(response.getHttp_status_code()));
         Log.w("BI_Reponse_content", response.getContent());
         return response;
@@ -49,7 +57,7 @@ public class IncidentReporter extends AsyncTask<String, Integer, Response> {
 
         List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
         nameValuePairs.add(new BasicNameValuePair("[incident][category]", incident_name));
-        nameValuePairs.add(new BasicNameValuePair("[incident][mobile_user_id]", Long.toString(mobile_user_id)));
+        nameValuePairs.add(new BasicNameValuePair("[incident][mobile_user_id]", Long.toString(this.mobile_user_id)));
         nameValuePairs.add(new BasicNameValuePair("[incident][location_attributes][latitude]", Double.toString(latitude)));
         nameValuePairs.add(new BasicNameValuePair("[incident][location_attributes][longitude]", Double.toString(longitude)));
         nameValuePairs.add(new BasicNameValuePair("[incident][location_attributes][street]", location_street));
