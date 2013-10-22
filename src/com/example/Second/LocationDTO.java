@@ -1,6 +1,8 @@
 package com.example.Second;
 
-public class LocationDTO {
+import java.io.Serializable;
+
+public class LocationDTO implements Serializable {
     private final double latitude;
     private final double longitude;
     private final String address;

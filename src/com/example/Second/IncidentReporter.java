@@ -47,7 +47,9 @@ public class IncidentReporter extends AsyncTask<Void, Integer, Response> {
 
     private Response requestIncident(String incidentName) {
         List<NameValuePair> nameValuePairs = build_incident_info(incidentName);
-        return RequestWrapper.post(context.getString(R.string.incidents_url), nameValuePairs);
+        if(this.pictureData == null)
+            return RequestWrapper.post(context.getString(R.string.incidents_url), nameValuePairs);
+        return RequestWrapper.post(context.getString(R.string.incidents_url), nameValuePairs, "[incident][avatar]", this.pictureData);
     }
 
     private List<NameValuePair> build_incident_info(String incident_name) {
@@ -61,6 +63,7 @@ public class IncidentReporter extends AsyncTask<Void, Integer, Response> {
         nameValuePairs.add(new BasicNameValuePair("[incident][location_attributes][latitude]", Double.toString(latitude)));
         nameValuePairs.add(new BasicNameValuePair("[incident][location_attributes][longitude]", Double.toString(longitude)));
         nameValuePairs.add(new BasicNameValuePair("[incident][location_attributes][street]", location_street));
+
         return nameValuePairs;
     }
 

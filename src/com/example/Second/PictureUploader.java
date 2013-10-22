@@ -18,6 +18,7 @@ import android.widget.Toast;
 import org.apache.http.NameValuePair;
 
 import java.io.ByteArrayOutputStream;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -32,14 +33,17 @@ public class PictureUploader extends Activity {
     private ImageView imageView;
     private Bitmap bitmap;
     private LocationDTO locationDTO;
-    private AsyncTask<Object, Integer, LocationDTO> locationTask;
+    private String incidentName;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.picture_uploader);
         imageView = (ImageView) findViewById(R.id.img_upload);
-        LocationProvider locationProvider = new LocationProvider(this);
-        locationTask = locationProvider.execute();
+        Bundle extras = getIntent().getExtras();
+        if (extras!=null){
+            this.incidentName = extras.getString("incidentName");
+            this.locationDTO = (LocationDTO) extras.getSerializable("location");
+        }
     }
 
     public void img_upload_click(View view){
@@ -153,7 +157,7 @@ public class PictureUploader extends Activity {
     }
 
     private void delegate_call(){
-        new IncidentReporter(this, "Abduction", getLocationDTO(), getPictureData()).execute();
+        new IncidentReporter(this, this.incidentName, this.locationDTO, getPictureData()).execute();
     }
 
     private byte[] getPictureData(){
@@ -163,17 +167,5 @@ public class PictureUploader extends Activity {
             return bos.toByteArray();
         }
         return null;
-    }
-
-    private LocationDTO getLocationDTO() {
-        if (locationDTO == null) {
-            try {
-                locationDTO = locationTask.get();
-
-            } catch (Exception e) {
-                Log.e("LocationError", e.getMessage());
-            }
-        }
-        return locationDTO;
     }
 }

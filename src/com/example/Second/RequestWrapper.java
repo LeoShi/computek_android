@@ -8,6 +8,11 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.mime.HttpMultipartMode;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.entity.mime.content.ByteArrayBody;
+import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 import java.io.*;
@@ -25,6 +30,19 @@ public class RequestWrapper {
         } catch (UnsupportedEncodingException e) {
         }
         return null;
+    }
+
+    public static Response post(String url, List<NameValuePair> nameValuePairs, String pictureKey, byte[] pictureValue) {
+        HttpPost httpPost = new HttpPost(url);
+        MultipartEntityBuilder entityBuilder = MultipartEntityBuilder.create();
+        entityBuilder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
+
+        for (NameValuePair nameValuePair : nameValuePairs) {
+            entityBuilder.addPart(nameValuePair.getName(), new StringBody(nameValuePair.getValue(), ContentType.DEFAULT_TEXT));
+        }
+        entityBuilder.addPart(pictureKey, new ByteArrayBody(pictureValue, "avatar.jpg"));
+        httpPost.setEntity(entityBuilder.build());
+        return request(httpPost);
     }
 
     public static Response get(String url)

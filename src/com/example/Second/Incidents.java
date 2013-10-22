@@ -1,6 +1,7 @@
 package com.example.Second;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,7 +32,11 @@ public class Incidents extends Activity {
 
 
     public void btn_abduction(View view) {
-        new IncidentReporter(this, "Abduction", getLocationDTO()).execute();
+//        new IncidentReporter(this, "Abduction", getLocationDTO()).execute();
+        Intent intent = new Intent(getBaseContext(), PictureUploader.class);
+        intent.putExtra("location", getLocationDTO());
+        intent.putExtra("incidentName", "Abduction");
+        startActivity(intent);
     }
 
     public void btn_armed_robbery(View view) {
